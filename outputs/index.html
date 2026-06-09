@@ -77,7 +77,14 @@
     .model-options button { padding:9px 11px; border:1px solid rgba(0,93,245,.24); border-radius:999px; color:var(--muted); background:rgba(3,5,13,.42); font-size:11px; font-weight:700; transition:.2s ease; }
     .model-options button:hover,.model-options button.active { color:#fff; border-color:#005df5; background:#1a00b5; box-shadow:0 8px 20px rgba(0,93,245,.18); }
     .explore3d-stage { position:relative; min-height:620px; overflow:hidden; border:1px solid rgba(0,93,245,.26); border-radius:28px; background:radial-gradient(circle at 50% 50%,rgba(0,93,245,.2),transparent 58%),linear-gradient(135deg,#0b1225,#050815); }
-    .explore3d-stage model-viewer { width:100%; height:100%; min-height:620px; --poster-color:transparent; }
+    .explore3d-stage model-viewer { display:none; width:100%; height:100%; min-height:620px; --poster-color:transparent; }
+    .explore3d-stage.is-3d-loaded model-viewer { display:block; }
+    .explore3d-stage.is-3d-loaded .stage-poster,
+    .explore3d-stage.is-3d-loaded .load-3d { display:none; }
+    .stage-poster { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:34px; filter:drop-shadow(0 26px 30px rgba(0,0,0,.42)); opacity:.92; transition:opacity .25s ease, transform .25s ease; }
+    .stage-poster.is-changing { opacity:.18; transform:scale(.985); }
+    .load-3d { position:absolute; z-index:3; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:8px; max-width:260px; padding:18px 20px; border:1px solid rgba(0,93,245,.34); border-radius:20px; color:#fff; background:rgba(3,5,13,.78); box-shadow:0 18px 44px rgba(0,0,0,.3); backdrop-filter:blur(14px); font-weight:800; }
+    .load-3d span { color:var(--muted); font-size:12px; font-weight:500; line-height:1.4; text-align:center; }
     .explore3d-meta { position:absolute; z-index:2; left:20px; right:20px; bottom:18px; display:flex; justify-content:space-between; gap:12px; align-items:end; padding:14px 16px; border:1px solid rgba(0,93,245,.22); border-radius:16px; background:rgba(3,5,13,.72); backdrop-filter:blur(10px); }
     .explore3d-meta strong { display:block; color:var(--accent-soft); font-size:16px; }.explore3d-meta span { color:var(--muted); font-size:12px; }
     .detail { background: #03040a; }
@@ -116,8 +123,14 @@
     .collection-card { position:relative; aspect-ratio:.94; overflow:hidden; padding:0; border:1px solid rgba(255,255,255,.12); border-radius:20px; color:var(--ink); background:#090d1a; text-align:left; transition:.3s ease; }
     .collection-card:after { content:""; position:absolute; inset:40% 0 0; background:linear-gradient(0deg,rgba(2,3,8,.98) 4%,rgba(2,3,8,.78) 48%,transparent); pointer-events:none; }
     .collection-card:hover { border-color:rgba(255,255,255,.36); box-shadow:0 16px 38px rgba(0,0,0,.28); transform:translateY(-4px); }
-    .collection-card img { width:100%; height:100%; object-fit:cover; opacity:.92; filter:saturate(.7) contrast(1.02) brightness(.84); transition:.35s ease; }
-    .collection-card:hover img { transform:scale(1.035); opacity:1; filter:saturate(.82) contrast(1.03) brightness(.94); }
+    .collection-card img { width:100%; height:100%; object-fit:cover; object-position:var(--img-position,center); opacity:.92; filter:saturate(.7) contrast(1.02) brightness(.84); transform:scale(var(--img-scale,1)); transition:.35s ease; }
+    .collection-card:hover img { transform:scale(var(--img-hover-scale,1.035)); opacity:1; filter:saturate(.82) contrast(1.03) brightness(.94); }
+    .collection-card[data-model="660"] { --img-scale:1.34; --img-hover-scale:1.38; --img-position:center 72%; }
+    .collection-card[data-model="670"] { --img-scale:1.2; --img-hover-scale:1.24; --img-position:center 56%; }
+    .collection-card[data-model="671"] { --img-scale:1.48; --img-hover-scale:1.52; --img-position:center 78%; }
+    .collection-card[data-model="660b"],
+    .collection-card[data-model="670b"],
+    .collection-card[data-model="671b"] { --img-scale:1.2; --img-hover-scale:1.24; --img-position:center 60%; }
     .collection-label { position:absolute; z-index:2; left:0; right:0; bottom:0; display:grid; align-content:end; gap:5px; min-height:118px; min-width:0; padding:16px 18px 17px; font-size:12px; }
     .collection-label strong { overflow:hidden; color:var(--accent-soft); font-size:14px; letter-spacing:.08em; text-overflow:ellipsis; white-space:nowrap; }
     .collection-label span { overflow:hidden; color:var(--muted); text-overflow:ellipsis; white-space:nowrap; }
@@ -262,8 +275,10 @@
           </div>
           <a class="button button-outline" href="#coleccion">Ver colección completa</a>
         </div>
-        <div class="explore3d-stage">
-          <model-viewer id="stage-model" src="assets/essentia-670b.glb" camera-controls auto-rotate rotation-per-second="16deg" touch-action="pan-y" shadow-intensity="1.25" shadow-softness=".82" exposure="1.18" environment-image="neutral" camera-orbit="35deg 62deg 2.8m" field-of-view="28deg" min-camera-orbit="auto auto 1.45m" max-camera-orbit="auto auto 5.2m" alt="Modelo 3D Essentia 670 Black"></model-viewer>
+        <div class="explore3d-stage" id="stage-3d">
+          <img class="stage-poster" id="stage-poster" src="assets/essentia-670b-clean.png" alt="Vista previa Essentia 670 Black">
+          <div class="load-3d" id="stage-loading">Preparando vista 3D<span>El modelo se carga automáticamente al llegar a esta sección.</span></div>
+          <model-viewer id="stage-model" camera-controls touch-action="pan-y" shadow-intensity="1.25" shadow-softness=".82" exposure="1.18" environment-image="neutral" camera-orbit="35deg 62deg auto" field-of-view="42deg" camera-target="auto auto auto" alt="Modelo 3D Essentia 670 Black"></model-viewer>
           <div class="explore3d-meta"><div><strong id="stage-title">Essentia 670 Black</strong><span id="stage-detail">Grande · Black-grafito</span></div><span>Arrastrá para rotar · Usá zoom para acercarte</span></div>
         </div>
       </div>
@@ -308,7 +323,7 @@
         <div class="modal-visual" id="modal-visual">
           <div class="view-switch" aria-label="Tipo de vista"><button class="active" id="view-image" type="button">Vista producto</button><button id="view-3d" type="button">Explorar en 3D</button></div>
           <img id="modal-image" src="assets/essentia-640-clean.png" alt="">
-          <model-viewer id="modal-model" camera-controls auto-rotate rotation-per-second="14deg" touch-action="pan-y" shadow-intensity="1.35" shadow-softness=".86" exposure="1.22" environment-image="neutral" camera-orbit="35deg 62deg 2.75m" field-of-view="27deg" min-camera-orbit="auto auto 1.35m" max-camera-orbit="auto auto 5m" alt=""></model-viewer>
+          <model-viewer id="modal-model" camera-controls touch-action="pan-y" shadow-intensity="1.35" shadow-softness=".86" exposure="1.22" environment-image="neutral" camera-orbit="35deg 62deg auto" field-of-view="42deg" camera-target="auto auto auto" alt=""></model-viewer>
           <span class="viewer-note">Arrastrá para rotar · Usá zoom para acercarte</span>
         </div>
         <div class="modal-content"><span class="eyebrow">Colección Essentia</span><h3 id="modal-title">Essentia 640</h3><p id="modal-description"></p><div class="modal-specs" id="modal-specs"></div><a class="button button-primary" id="modal-cta" href="mailto:consultas@mipileta.com.ar?subject=Consulta%20Essentia">Quiero saber más</a></div>
@@ -439,10 +454,59 @@
       "671b":{name:"Essentia 671 Black",image:"assets/essentia-671b-clean.png",model:"assets/essentia-671b.glb",description:"La única pileta doble Black-grafito del mercado. Una declaración para quienes buscan algo extraordinario.",measure:"76 × 45 cm",finish:"Black-grafito",type:"Doble"}
     };
     const stageModel=document.getElementById("stage-model");
+    const stage3d=document.getElementById("stage-3d");
+    const stagePoster=document.getElementById("stage-poster");
+    let selectedStageProduct=products["670b"];
+    let stageModelRequested=false;
+    console.info("[Essentia] Prototype boot: static HTML, no React runtime detected.");
+    console.info("[Essentia] 3D stage starts without src to avoid blocking initial page load.");
+    function resetModelCamera(viewer, product) {
+      viewer.setAttribute("camera-orbit", product?.cameraOrbit || "35deg 62deg auto");
+      viewer.setAttribute("camera-target", "auto auto auto");
+      viewer.setAttribute("field-of-view", product?.fieldOfView || "42deg");
+      window.setTimeout(()=>{
+        try {
+          if (typeof viewer.resetTurntableRotation === "function") viewer.resetTurntableRotation();
+          if (typeof viewer.jumpCameraToGoal === "function") viewer.jumpCameraToGoal();
+        } catch(error) {
+          console.warn("[Essentia] Camera reset skipped", error);
+        }
+      },80);
+    }
+    function loadStageModel() {
+      if (!selectedStageProduct) return;
+      stageModelRequested=true;
+      stage3d.classList.add("is-3d-loaded");
+      console.info("[Essentia] Loading 3D model", selectedStageProduct.name, selectedStageProduct.model);
+      resetModelCamera(stageModel, selectedStageProduct);
+      if(stageModel.getAttribute("src")!==selectedStageProduct.model) stageModel.setAttribute("src",selectedStageProduct.model);
+    }
+    stageModel.addEventListener("load",()=>{ console.info("[Essentia] 3D model loaded", selectedStageProduct?.name); resetModelCamera(stageModel, selectedStageProduct); });
+    stageModel.addEventListener("error",(event)=>console.error("[Essentia] 3D model failed", selectedStageProduct?.model, event));
+    if("IntersectionObserver" in window) {
+      const stageObserver=new IntersectionObserver((entries)=>{
+        if(entries.some((entry)=>entry.isIntersecting)) {
+          console.info("[Essentia] 3D section visible; requesting model.");
+          loadStageModel();
+          stageObserver.disconnect();
+        }
+      },{rootMargin:"220px 0px"});
+      stageObserver.observe(stage3d);
+    } else {
+      window.setTimeout(loadStageModel,900);
+    }
+    if(location.hash==="#explorar-3d") window.setTimeout(loadStageModel,120);
     document.querySelectorAll("[data-stage-model]").forEach((button)=>button.addEventListener("click",()=>{
       const product=products[button.dataset.stageModel];
+      selectedStageProduct=product;
       document.querySelectorAll("[data-stage-model]").forEach((item)=>item.classList.toggle("active",item===button));
-      stageModel.setAttribute("src",product.model);
+      stagePoster.classList.add("is-changing");
+      window.setTimeout(()=>{ stagePoster.src=product.image; stagePoster.alt=`Vista previa ${product.name}`; stagePoster.classList.remove("is-changing"); },130);
+      if(stageModelRequested&&stageModel.getAttribute("src")!==product.model) {
+        console.info("[Essentia] Switching 3D model", product.name, product.model);
+        resetModelCamera(stageModel, product);
+        stageModel.setAttribute("src",product.model);
+      }
       stageModel.alt=`Modelo 3D ${product.name}`;
       document.getElementById("stage-title").textContent=product.name;
       document.getElementById("stage-detail").textContent=`${product.type} · ${product.finish}`;
@@ -456,8 +520,12 @@
       modalVisual.classList.toggle("show-3d",show3d);
       document.getElementById("view-image").classList.toggle("active",!show3d);
       document.getElementById("view-3d").classList.toggle("active",show3d);
-      if(show3d&&currentProduct&&modalModel.getAttribute("src")!==currentProduct.model) modalModel.setAttribute("src",currentProduct.model);
+      if(show3d&&currentProduct) {
+        resetModelCamera(modalModel,currentProduct);
+        if(modalModel.getAttribute("src")!==currentProduct.model) modalModel.setAttribute("src",currentProduct.model);
+      }
     }
+    modalModel.addEventListener("load",()=>resetModelCamera(modalModel,currentProduct));
     function openProduct(model) {
       const product=products[model];
       currentProduct=product;
