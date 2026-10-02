@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "historia": {
+      "type": "mp-nuestra-historia",
+      "blocks": {
+        "stat-1": { "type": "stat", "settings": { "value": "50+", "label": "años de trayectoria" } },
+        "stat-2": { "type": "stat", "settings": { "value": "304", "label": "acero inoxidable 18/8" } },
+        "stat-3": { "type": "stat", "settings": { "value": "100%", "label": "industria argentina" } },
+        "hito-1": { "type": "milestone", "settings": { "year": "19XX", "label": "Los comienzos", "title": "Un taller y una idea", "text": "Cómo arrancó todo." } },
+        "hito-2": { "type": "milestone", "settings": { "year": "19XX", "label": "Crecimiento", "title": "La primera planta", "text": "El salto a la producción industrial." } },
+        "hito-3": { "type": "milestone", "settings": { "year": "20XX", "label": "Innovación", "title": "Nuevas líneas", "text": "Diseño y tecnología al servicio de la cocina." } },
+        "hito-4": { "type": "milestone", "settings": { "year": "2026", "label": "Hoy", "title": "Lanzamiento Essentia", "text": "Nuestra línea de alta gama: diseño puro, funcionalidad absoluta." } },
+        "valor-1": { "type": "value", "settings": { "title": "Calidad", "text": "Materiales de primera y procesos controlados." } },
+        "valor-2": { "type": "value", "settings": { "title": "Diseño", "text": "Líneas netas que elevan cada espacio." } },
+        "valor-3": { "type": "value", "settings": { "title": "Cercanía", "text": "Asesoramiento antes y después de la compra." } },
+        "valor-4": { "type": "value", "settings": { "title": "Industria nacional", "text": "Fabricamos en Argentina." } }
+      },
+      "block_order": ["stat-1", "stat-2", "stat-3", "hito-1", "hito-2", "hito-3", "hito-4", "valor-1", "valor-2", "valor-3", "valor-4"],
+      "settings": {}
+    }
+  },
+  "order": ["historia"]
+}
