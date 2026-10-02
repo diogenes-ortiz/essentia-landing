@@ -1,23 +1,209 @@
 {
   "sections": {
     "historia": {
-      "type": "mp-nuestra-historia",
+      "type": "mipileta-historia",
       "blocks": {
-        "stat-1": { "type": "stat", "settings": { "value": "50+", "label": "años de trayectoria" } },
-        "stat-2": { "type": "stat", "settings": { "value": "304", "label": "acero inoxidable 18/8" } },
-        "stat-3": { "type": "stat", "settings": { "value": "100%", "label": "industria argentina" } },
-        "hito-1": { "type": "milestone", "settings": { "year": "19XX", "label": "Los comienzos", "title": "Un taller y una idea", "text": "Cómo arrancó todo." } },
-        "hito-2": { "type": "milestone", "settings": { "year": "19XX", "label": "Crecimiento", "title": "La primera planta", "text": "El salto a la producción industrial." } },
-        "hito-3": { "type": "milestone", "settings": { "year": "20XX", "label": "Innovación", "title": "Nuevas líneas", "text": "Diseño y tecnología al servicio de la cocina." } },
-        "hito-4": { "type": "milestone", "settings": { "year": "2026", "label": "Hoy", "title": "Lanzamiento Essentia", "text": "Nuestra línea de alta gama: diseño puro, funcionalidad absoluta." } },
-        "valor-1": { "type": "value", "settings": { "title": "Calidad", "text": "Materiales de primera y procesos controlados." } },
-        "valor-2": { "type": "value", "settings": { "title": "Diseño", "text": "Líneas netas que elevan cada espacio." } },
-        "valor-3": { "type": "value", "settings": { "title": "Cercanía", "text": "Asesoramiento antes y después de la compra." } },
-        "valor-4": { "type": "value", "settings": { "title": "Industria nacional", "text": "Fabricamos en Argentina." } }
+        "timeline_item_xeh7Qb": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "1967",
+            "title": "Nacimiento de la empresa",
+            "description": "Se lanzaron inicialmente 8 modelos de piletas y la incorporación de un innovador desagüe de una sola pieza, aún vigente.",
+            "image": "shopify://shop_images/fotos_mipi.png"
+          }
+        },
+        "timeline_item_jNnjLD": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "1980-1990",
+            "title": "Consolidación y crecimiento",
+            "description": "Fuerte expansión con la adquisición de espacios contiguos para ampliar la capacidad de producción.\nSe incorpora una nueva línea de piletas y se lanza una innovadora línea de piletas encastrables con 6 modelos originales, marcando tendencia en el mercado.\nA mediados de la década, se completa la línea de vanitorys existente con la introducción de piletas de lavadero.",
+            "image": "shopify://shop_images/Gemini_Generated_Image_dmd0sadmd0sadmd0.png"
+          }
+        },
+        "timeline_item_MbJ7YJ": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2000",
+            "title": "Ampliación y nuevas tecnologías",
+            "description": "Se concretó la adquisición de maquinaria de última tecnología, incluyendo equipos de soldadura automatizada para la producción de encastrables y mesadas. Estas mejoras permiten lanzar nuevas líneas icónicas que marcan un antes y un después en el rubro.",
+            "image": "shopify://shop_images/foto_fb.png"
+          }
+        },
+        "timeline_item_Vnq4Ur": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2010",
+            "title": "Expansión e infraestructura",
+            "description": "Adquisición del terreno donde hoy se ubica nuestra planta de producción de última generación. La construcción, equipada con tecnología de punta, comenzó en 2012.",
+            "image": "shopify://shop_images/Gemini_Generated_Image_to7320to7320to73.png"
+          }
+        },
+        "timeline_item_6EaPh6": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2025",
+            "title": "¡Seguimos creciendo!",
+            "description": "Con una fábrica diseñada exactamente a nuestra medida, hoy impulsamos una producción más innovadora y eficiente.",
+            "image": "shopify://shop_images/mpileta_ahora_2886cce9-7427-498d-84d0-22cfadca49ef.jpg"
+          }
+        },
+        "stat_item_iE38nT": {
+          "type": "stat_item",
+          "settings": {
+            "stat_number": "+1000",
+            "stat_label": "Distribuidores en todo el país"
+          }
+        },
+        "stat_item_hfqtqw": {
+          "type": "stat_item",
+          "settings": {
+            "stat_number": "16000m²",
+            "stat_label": "De fábrica"
+          }
+        },
+        "stat_item_i8mpPh": {
+          "type": "stat_item",
+          "settings": {
+            "stat_number": "+2000m²",
+            "stat_label": "De oficinas"
+          }
+        },
+        "stat_item_jtKY6H": {
+          "type": "stat_item",
+          "settings": {
+            "stat_number": "+150",
+            "stat_label": "Trabajadores calificados"
+          }
+        },
+        "stat_item_wCL89Q": {
+          "type": "stat_item",
+          "settings": {
+            "stat_number": "+200",
+            "stat_label": "Productos en catálogo"
+          }
+        },
+        "stat_item_NnxHRB": {
+          "type": "stat_item",
+          "settings": {
+            "stat_number": "57 años",
+            "stat_label": "De trayectoria"
+          }
+        },
+        "valor_item_EphimT": {
+          "type": "valor_item",
+          "settings": {
+            "valor_number": "1",
+            "valor_title": "Calidez, tradición y trayectoria",
+            "valor_description": "Nuestra marca evoca recuerdos de\nfamilia, de comidas compartidas y de un\nhogar acogedor. Representamos la\ncontinuidad y la confianza que\ntransmitimos de generación en\ngeneración.",
+            "valor_icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"></path></svg>"
+          }
+        },
+        "valor_item_bmcePD": {
+          "type": "valor_item",
+          "settings": {
+            "valor_number": "2",
+            "valor_title": "Excelencia",
+            "valor_description": "Nos comprometemos con la más alta\ncalidad en cada producto, utilizando\nmateriales de primera línea y procesos de\nfabricación rigurosos. Representamos lo\nmejor del diseño y la funcionalidad.",
+            "valor_icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"></path>\n</svg>"
+          }
+        },
+        "valor_item_awdj8d": {
+          "type": "valor_item",
+          "settings": {
+            "valor_number": "3",
+            "valor_title": "Versatilidad",
+            "valor_description": "Diseñamos una amplia gama de\nproductos que se adaptan a cada estilo\nde vida y a cada necesidad.",
+            "valor_icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2\"></path>\n</svg>"
+          }
+        },
+        "valor_item_DjkMLb": {
+          "type": "valor_item",
+          "settings": {
+            "valor_number": "4",
+            "valor_title": "Liderazgo y solidez",
+            "valor_description": "Con décadas de experiencia, somos una\nempresa reconocida como un referente\nen el mercado. Contamos con la\ntrayectoria y el compromiso con la\ninnovación que nos posicionan como\nuna marca confiable y duradera.",
+            "valor_icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z\"></path>\n  <line x1=\"4\" y1=\"22\" x2=\"4\" y2=\"15\"></line>\n</svg>"
+          }
+        },
+        "valor_item_zKKgYm": {
+          "type": "valor_item",
+          "settings": {
+            "valor_number": "5",
+            "valor_title": "Garantía y confianza",
+            "valor_description": "Cada uno de nuestros productos está\nrespaldado por una garantía que refleja\nla seguridad y la tranquilidad que\nofrecemos a nuestros clientes.",
+            "valor_icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"m11 17 2 2a1 1 0 1 0 3-3\"></path>\n  <path d=\"m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4\"></path>\n  <path d=\"m21 3 1 11h-2\"></path>\n  <path d=\"M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3\"></path>\n  <path d=\"M3 4h8\"></path>\n</svg>"
+          }
+        },
+        "valor_item_7GLphV": {
+          "type": "valor_item",
+          "settings": {
+            "valor_number": "6",
+            "valor_title": "Compromiso y sustentabilidad",
+            "valor_description": "Mi Pileta es una empresa que forma\nparte de una industria de bajo impacto\nambiental. Los materiales que utilizamos\ny nuestros procesos de producción son\nlimpios; trabajamos en el presente\npensando y teniendo en cuenta el futuro.",
+            "valor_icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z\"></path>\n  <path d=\"M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12\"></path>\n</svg>"
+          }
+        },
+        "valor_item_iQPMQQ": {
+          "type": "valor_item",
+          "settings": {
+            "valor_number": "7",
+            "valor_title": "Atención personalizada",
+            "valor_description": "Creemos en construir relaciones\nduraderas, ofreciéndo un trato cercano y\npersonalizado en cada interacción.\nOfrecemos recomendaciones\npersonalizadas y resolvemos dudas de\nmanera rápida y eficiente.",
+            "valor_icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M3 18v-6a9 9 0 0 1 18 0v6\"></path>\n  <path d=\"M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5Z\"></path>\n  <path d=\"M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5Z\"></path>\n</svg>"
+          }
+        }
       },
-      "block_order": ["stat-1", "stat-2", "stat-3", "hito-1", "hito-2", "hito-3", "hito-4", "valor-1", "valor-2", "valor-3", "valor-4"],
-      "settings": {}
+      "block_order": [
+        "timeline_item_xeh7Qb",
+        "timeline_item_jNnjLD",
+        "timeline_item_MbJ7YJ",
+        "timeline_item_Vnq4Ur",
+        "timeline_item_6EaPh6",
+        "stat_item_iE38nT",
+        "stat_item_hfqtqw",
+        "stat_item_i8mpPh",
+        "stat_item_jtKY6H",
+        "stat_item_wCL89Q",
+        "stat_item_NnxHRB",
+        "valor_item_EphimT",
+        "valor_item_bmcePD",
+        "valor_item_awdj8d",
+        "valor_item_DjkMLb",
+        "valor_item_zKKgYm",
+        "valor_item_7GLphV",
+        "valor_item_iQPMQQ"
+      ],
+      "settings": {
+        "hero_eyebrow": "Desde 1967",
+        "title": "Nuestra",
+        "title_hl": "historia",
+        "subtitle": "La tradición de innovar.",
+        "hero_cta": "Recorrer la historia",
+        "hero_cta2": "Ver productos",
+        "tl_eyebrow": "Trayectoria",
+        "tl_title": "Más de medio siglo",
+        "tl_title_hl": "haciendo piletas",
+        "show_stats": true,
+        "stats_eyebrow": "Hoy",
+        "stats_title": "Mi Pileta",
+        "stats_title_hl": "hoy",
+        "stats_subtitle": "Innovación, diseño y cercanía: nuestra apuesta al futuro",
+        "show_valores": true,
+        "valores_eyebrow": "Lo que nos define",
+        "valores_title": "Nuestros",
+        "valores_title_hl": "valores",
+        "show_cta": true,
+        "cta_eyebrow": "Seguimos creciendo",
+        "cta_title": "La historia sigue",
+        "cta_title_hl": "en tu cocina",
+        "cta_lead": "Conocé nuestras líneas o encontrá el distribuidor más cercano.",
+        "cta_btn": "Ver productos",
+        "cta_btn2": "Dónde comprar"
+      }
     }
   },
-  "order": ["historia"]
+  "order": [
+    "historia"
+  ]
 }
