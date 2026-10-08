@@ -1,0 +1,236 @@
+{
+  "sections": {
+    "main": {
+      "type": "mipileta-garantia",
+      "blocks": {
+        "garantia_card_eAx6wt": {
+          "type": "garantia_card",
+          "settings": {
+            "icon": "<svg fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg>",
+            "title": "Garantía de 10 Años",
+            "description": "Se cubre a sus piletas y mesadas de acero inoxidable AISI 304-18/8 y 18/10 mediante esta GARANTÍA indiscutible de defectos de fabricación, en usos normales, por el término de 10 años."
+          }
+        },
+        "garantia_card_7kfTMz": {
+          "type": "garantia_card",
+          "settings": {
+            "icon": "<svg fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg>",
+            "title": "Reemplazo garantizado",
+            "description": "Se reemplazará sin cargo cualquier pileta y/o mesada de acero inoxidable calidad 304-18/8 y 18/10, probado que sea defectuosa con otro modelo igual o equivalente, y habiéndose comprobado que ha sido utilizada para su uso normal y doméstico y con el tratamiento adecuado y no dañado debido a abusos, usos inadecuados o negligencias. En caso de reclamo se solicitará prueba de la adquisición."
+          }
+        },
+        "garantia_card_n8AMTA": {
+          "type": "garantia_card",
+          "settings": {
+            "icon": "<svg fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg>",
+            "title": "Inspección y Condiciones del Reemplazo",
+            "description": "Se reserva el derecho de inspeccionar toda pileta reclamada antes de su cambio. La decisión de la empresa será terminante. Los costos de reemplazo excluyen envíos y todo costo de mano de obra por cambios y/o reinstalaciones."
+          }
+        },
+        "termino_item_f46rLg": {
+          "type": "termino_item",
+          "settings": {
+            "texto": "Esta GARANTÍA anula y reemplaza toda otra garantía emitida o implícita."
+          }
+        },
+        "termino_item_XKYFLW": {
+          "type": "termino_item",
+          "settings": {
+            "texto": "La empresa no será responsable directo o indirecto por daños accidentales o consecuentes relacionados a los bienes aquí mencionados."
+          }
+        },
+        "termino_item_89ry69": {
+          "type": "termino_item",
+          "settings": {
+            "texto": "Esta GARANTÍA es exclusiva para el usuario final."
+          }
+        },
+        "termino_item_ACkD7c": {
+          "type": "termino_item",
+          "settings": {
+            "texto": "Ningún empleado, agente, distribuidor u otra persona está autorizada a emitir otra GARANTÍA en nombre de la empresa, salvo en un escrito firmado por autoridad de la misma."
+          }
+        },
+        "termino_item_QDwiUf": {
+          "type": "termino_item",
+          "settings": {
+            "texto": "Mi Pileta se reserva el derecho de cambiar, modificar o discontinuar sin previo aviso cualquiera de los productos enunciados."
+          }
+        },
+        "no_responsable_item_QGXizh": {
+          "type": "no_responsable_item",
+          "settings": {
+            "title": "Modificaciones",
+            "description": "Modificación de producto y/o instalaciones inadecuadas"
+          }
+        },
+        "no_responsable_item_BLQ9rC": {
+          "type": "no_responsable_item",
+          "settings": {
+            "title": "Daños graves",
+            "description": "Daños debidos a usos abusivos, tales como golpes con elementos que caigan sobre las mesadas o dentro de las piletas."
+          }
+        },
+        "no_responsable_item_3nWDnb": {
+          "type": "no_responsable_item",
+          "settings": {
+            "title": "Modificaciones al producto",
+            "description": "Modificaciones realizadas posteriores a la entrega del producto"
+          }
+        },
+        "no_responsable_item_Yi6kJU": {
+          "type": "no_responsable_item",
+          "settings": {
+            "title": "Cuidados inapropiados",
+            "description": "Un mantenimiento inapropiado puede haber afectado el rendimiento y la apariencia del acero inoxidable, generando manchas, marcas, pérdida de brillo o deterioro prematuro."
+          }
+        },
+        "no_responsable_item_KKeJg9": {
+          "type": "no_responsable_item",
+          "settings": {
+            "title": "Usos indebidos",
+            "description": "Tales como exposición a químicos corrosivos, soluciones fotográficas."
+          }
+        },
+        "no_responsable_item_NzCYPV": {
+          "type": "no_responsable_item",
+          "settings": {
+            "title": "Uso comercial",
+            "description": "Usos comerciales y no domiciliarios"
+          }
+        },
+        "cuidado_item_nE4NXU": {
+          "type": "cuidado_item",
+          "settings": {
+            "icon": "<svg fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\"></path></svg>",
+            "title": "Procedimiento Diario de Lavado",
+            "description": "La rutina diaria implica un lavado con detergente, enjuague y secado meticuloso. Esta práctica regular es fundamental para evitar la acumulación de residuos y para mantener la superficie en condiciones óptimas."
+          }
+        },
+        "cuidado_item_zUwVjq": {
+          "type": "cuidado_item",
+          "settings": {
+            "icon": "<svg fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\"></path></svg>",
+            "title": "Lavado profundo",
+            "description": "Con la pileta o mesada completamente seca, se debe emplear un limpiador cremoso, seguido de un enjuague minucioso y un secado adecuado. Este enfoque previene la acumulación de grasas o sarro, mitigando la formación de manchas."
+          }
+        },
+        "cuidado_item_BbKKr7": {
+          "type": "cuidado_item",
+          "settings": {
+            "icon": "<svg fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\"></path></svg>",
+            "title": "Prevención de manchas",
+            "description": "Se advierte sobre la propensión de ciertos productos cotidianos, como sal, limón, mayonesa, ácidos lácticos o sangre, a causar manchas. Es imperativo abordar rápidamente cualquier derrame de estos elementos para evitar marcas permanentes."
+          }
+        },
+        "cuidado_item_WbVBdB": {
+          "type": "cuidado_item",
+          "settings": {
+            "icon": "<svg fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\"></path></svg>",
+            "title": "Advertencia sobre factores que dañan el producto",
+            "description": "Es esencial evitar colocar bajo las piletas botellas de vidrio o plástico sin tapas, particularmente aquellas que contienen sustancias corrosivas como lavandina, detergentes u otros productos químicos. \n\nLos vapores liberados pueden ocasionar manchas en la parte trasera de la pileta, comprometiendo su estética.\n\nSiguiendo estas directrices de Mi Pileta, se garantiza la preservación óptima de sus piletas y mesadas de acero inoxidable, asegurando una estética duradera y una funcionalidad sin compromisos."
+          }
+        },
+        "video_item_nKkQif": {
+          "type": "video_item",
+          "settings": {
+            "youtube_id": "g3jLrV_NTKI",
+            "video_title": "Mi Pileta tutoriales - colocación de productos",
+            "video_description": "Nuestra guía recomienda cómo instalar una pileta sobremesada de forma fácil, rápida de acabado perfecto y duradero."
+          }
+        },
+        "video_item_6668E8": {
+          "type": "video_item",
+          "settings": {
+            "youtube_id": "eHqarY8I1mg",
+            "video_title": "Mi Pileta tutoriales - colocación de grampas",
+            "video_description": "Nuestra guía recomienda cómo instalar grampas de forma fácil, rápida y duradera. Te proporcionamos consejos y trucos, de la mano de nuestros expertos."
+          }
+        },
+        "video_item_8NxEEf": {
+          "type": "video_item",
+          "settings": {
+            "youtube_id": "MLWkF-hHZaI",
+            "video_title": "Mi Pileta tutoriales - colocación de pileta bajomesada",
+            "video_description": "Nuestra guía recomienda cómo instalar una pileta bajomesada de forma fácil, rápida de acabado perfecto y duradero. Desde la preparación de la superficie hasta el sellado final, te proporcionamos consejos y trucos, de la mano de nuestros expertos."
+          }
+        },
+        "video_item_biedfp": {
+          "type": "video_item",
+          "settings": {
+            "youtube_id": "ei1y7G4JyyM",
+            "video_title": "Mi Pileta tutoriales - colocación de piletas de apoyo",
+            "video_description": "Nuestra guía recomienda cómo instalar una pileta bajomesada de forma fácil, rápida de acabado perfecto y duradero."
+          }
+        }
+      },
+      "block_order": [
+        "garantia_card_eAx6wt",
+        "garantia_card_7kfTMz",
+        "garantia_card_n8AMTA",
+        "termino_item_f46rLg",
+        "termino_item_XKYFLW",
+        "termino_item_89ry69",
+        "termino_item_ACkD7c",
+        "termino_item_QDwiUf",
+        "no_responsable_item_QGXizh",
+        "no_responsable_item_BLQ9rC",
+        "no_responsable_item_3nWDnb",
+        "no_responsable_item_Yi6kJU",
+        "no_responsable_item_KKeJg9",
+        "no_responsable_item_NzCYPV",
+        "cuidado_item_nE4NXU",
+        "cuidado_item_zUwVjq",
+        "cuidado_item_BbKKr7",
+        "cuidado_item_WbVBdB",
+        "video_item_nKkQif",
+        "video_item_6668E8",
+        "video_item_8NxEEf",
+        "video_item_biedfp"
+      ],
+      "settings": {
+        "hero_eyebrow": "Compra protegida",
+        "title": "Tu pileta,",
+        "title_hl": "protegida",
+        "subtitle": "Todo lo que necesitás saber sobre garantía, cuidados e instalación de nuestros productos.",
+        "seal_number": "10",
+        "seal_label": "años de garantía",
+        "show_quick_nav": true,
+        "garantia_icon": "<svg fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\"></path></svg>",
+        "garantia_text": "Garantía",
+        "cuidados_icon": "<svg fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg>",
+        "cuidados_text": "Cuidados",
+        "videos_icon": "<svg fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z\"></path><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg>",
+        "videos_text": "Videos tutoriales",
+        "garantia_eyebrow": "Garantía",
+        "garantia_title": "Respaldo",
+        "garantia_title_hl": "de fábrica",
+        "show_terminos": true,
+        "terminos_eyebrow": "Condiciones",
+        "terminos_title": "Términos generales de la garantía",
+        "show_no_responsable": true,
+        "no_responsable_eyebrow": "No cubre",
+        "no_responsable_title": "Excepciones y limitaciones de cobertura",
+        "show_cuidados": true,
+        "cuidados_title": "Tu pileta",
+        "cuidados_title_hl": "para toda la vida",
+        "cuidados_subtitle": "Conocé los tips para el mejor mantenimiento",
+        "show_videos": true,
+        "videos_title": "Tutoriales de",
+        "videos_title_hl": "instalación",
+        "videos_subtitle": "Aprendé a instalar y mantener tus productos con nuestros videos paso a paso",
+        "videos_tag": "Tutorial",
+        "show_cta": true,
+        "cta_eyebrow": "Estamos para ayudarte",
+        "cta_title": "¿Tenés dudas sobre",
+        "cta_title_hl": "tu garantía?",
+        "cta_lead": "Escribinos y nuestro equipo te asesora.",
+        "cta_btn": "Contactanos",
+        "cta_btn2": "Ver productos"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

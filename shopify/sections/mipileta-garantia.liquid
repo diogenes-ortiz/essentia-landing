@@ -1,0 +1,495 @@
+{%- comment -%}
+  sections/mipileta-garantia.liquid — Compra protegida (garantía, cuidados e instalación)
+  con el lenguaje visual de la home: base blanca, islas negras, Raleway 200 + Hanken Grotesk,
+  botones píldora negro/blanco y el acento cálido de la marca.
+  Usa los mismos tipos de bloque que tenía la página (garantia_card, termino_item,
+  no_responsable_item, cuidado_item, video_item) para que el contenido pase tal cual.
+  Todo el CSS está encapsulado en .mpg-{{ section.id }} para no pisar el tema.
+{%- endcomment -%}
+
+{%- liquid
+  assign sid = section.id
+  assign n_garantia = 0
+  assign n_terminos = 0
+  assign n_excep = 0
+  assign n_cuidados = 0
+  assign n_videos = 0
+  for b in section.blocks
+    case b.type
+      when 'garantia_card'
+        assign n_garantia = n_garantia | plus: 1
+      when 'termino_item'
+        assign n_terminos = n_terminos | plus: 1
+      when 'no_responsable_item'
+        assign n_excep = n_excep | plus: 1
+      when 'cuidado_item'
+        assign n_cuidados = n_cuidados | plus: 1
+      when 'video_item'
+        assign n_videos = n_videos | plus: 1
+    endcase
+  endfor
+-%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;700&family=Raleway:wght@200;300;400;700&display=swap" rel="stylesheet">
+
+<style>
+  .mpg-{{ sid }}{
+    --bg:#ffffff; --card:#f7f7f5; --line:#e4e4e0; --txt:#14181e; --muted:#5f656c;
+    --warm:#b07a41; --dark:#0c0d0f; --ink:#14181e; --radius:30px;
+    background:var(--bg);color:var(--txt);
+    font-family:"Hanken Grotesk",system-ui,Arial,sans-serif;font-weight:400;line-height:1.55;
+    -webkit-font-smoothing:antialiased;overflow-x:clip;
+  }
+  .mpg-{{ sid }} *,.mpg-{{ sid }} *::before,.mpg-{{ sid }} *::after{box-sizing:border-box;}
+  .mpg-{{ sid }} img{max-width:100%;display:block;}
+  .mpg-{{ sid }} a{color:inherit;text-decoration:none;}
+  .mpg-{{ sid }} button{font:inherit;color:inherit;}
+  .mpg-{{ sid }} h1,.mpg-{{ sid }} h2,.mpg-{{ sid }} h3{margin:0;font-weight:400;line-height:1.06;color:inherit;letter-spacing:normal;}
+  .mpg-{{ sid }} p{margin:0;}
+  .mpg-{{ sid }} ol,.mpg-{{ sid }} ul{margin:0;padding:0;list-style:none;}
+  .mpg-{{ sid }} .container{max-width:1180px;margin:0 auto;padding:0 20px;}
+  .mpg-{{ sid }} .section{padding-block:clamp(56px,8vw,104px);}
+  .mpg-{{ sid }} [id^="mpg-"]{scroll-margin-top:90px;}
+
+  /* helpers (idénticos a la home) */
+  .mpg-{{ sid }} .eyebrow{font-size:.78rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;font-weight:400;}
+  .mpg-{{ sid }} .center{text-align:center;}
+  .mpg-{{ sid }} .lead{color:var(--muted);font-weight:300;max-width:660px;}
+  .mpg-{{ sid }} .center .lead{margin-left:auto;margin-right:auto;}
+  .mpg-{{ sid }} .title{font-family:"Raleway",sans-serif;font-weight:200;font-size:clamp(2rem,4.6vw,3.4rem);letter-spacing:.01em;margin:16px 0 0;}
+  .mpg-{{ sid }} .title strong{font-weight:700;}
+  .mpg-{{ sid }} .btn{display:inline-block;padding:14px 30px;border-radius:99px;font-weight:700;cursor:pointer;font-family:inherit;border:1px solid transparent;font-size:.92rem;transition:background .25s ease,border-color .25s ease,color .25s ease;}
+  .mpg-{{ sid }} .btn-light{background:#fff;color:var(--ink);border-color:#fff;}
+  .mpg-{{ sid }} .btn-light:hover{background:transparent;color:#fff;}
+  .mpg-{{ sid }} .btn-ghost{border-color:rgba(255,255,255,.45);color:#e9ecef;}
+  .mpg-{{ sid }} .btn-ghost:hover{border-color:#fff;background:#fff;color:var(--ink);}
+  .mpg-{{ sid }} .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .mpg-{{ sid }} .center .cta-row{justify-content:center;}
+  .mpg-{{ sid }} .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1);}
+  .mpg-{{ sid }} .rv.in{opacity:1;transform:none;}
+
+  /* ---------- hero: isla negra ---------- */
+  .mpg-{{ sid }} .hero{position:relative;overflow:hidden;background:var(--dark);color:#fff;}
+  .mpg-{{ sid }} .hero-bg{position:absolute;inset:0;z-index:0;}
+  .mpg-{{ sid }} .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.42;}
+  .mpg-{{ sid }} .hero::before{content:"";position:absolute;inset:0;z-index:1;background:
+      radial-gradient(60% 90% at 82% 30%,rgba(201,146,90,.22),transparent 62%),
+      linear-gradient(90deg,rgba(12,13,15,.94) 0%,rgba(12,13,15,.7) 45%,rgba(12,13,15,.35) 100%);}
+  .mpg-{{ sid }} .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(32px,6vw,80px);align-items:end;padding-block:clamp(96px,14vw,150px) clamp(48px,7vw,84px);}
+  .mpg-{{ sid }} .hero .eyebrow{color:#c8ced6;}
+  .mpg-{{ sid }} .hero h1{margin-top:18px;font-family:"Raleway",sans-serif;font-weight:200;font-size:clamp(2.6rem,6.4vw,5.2rem);line-height:1.02;letter-spacing:.005em;max-width:14ch;}
+  .mpg-{{ sid }} .hero h1 strong{font-weight:700;background:linear-gradient(180deg,#ffffff 0%,#f4f7fa 45%,#dde3e9 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .mpg-{{ sid }} .hero .sub{color:#d6dae0;font-weight:300;max-width:46ch;margin-top:20px;font-size:clamp(1rem,1.5vw,1.15rem);}
+  .mpg-{{ sid }} .quicknav{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+  .mpg-{{ sid }} .quicknav a{display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border:1px solid rgba(255,255,255,.3);border-radius:99px;font-size:.85rem;color:#e9ecef;transition:background .25s,border-color .25s,color .25s;}
+  .mpg-{{ sid }} .quicknav a:hover{background:#fff;border-color:#fff;color:var(--ink);}
+  .mpg-{{ sid }} .quicknav svg{width:17px;height:17px;stroke:currentColor;fill:none;}
+  .mpg-{{ sid }} .seal{justify-self:end;display:flex;flex-direction:column;align-items:center;justify-content:center;width:clamp(180px,22vw,250px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.08),transparent 70%);text-align:center;}
+  .mpg-{{ sid }} .seal b{font-family:"Raleway",sans-serif;font-weight:200;font-size:clamp(4rem,8vw,6.2rem);line-height:.9;}
+  .mpg-{{ sid }} .seal span{margin-top:10px;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:#c8ced6;max-width:14ch;}
+  .mpg-{{ sid }} .seal i{display:block;width:26px;height:1px;background:var(--warm);margin-top:14px;}
+
+  /* ---------- garantía: tarjetas ---------- */
+  .mpg-{{ sid }} .gcards{display:grid;grid-template-columns:repeat({{ n_garantia | at_most: 3 | at_least: 1 }},1fr);gap:14px;margin-top:44px;}
+  .mpg-{{ sid }} .gcard{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 28px 32px;transition:border-color .35s ease,background .35s ease,transform .5s cubic-bezier(.22,.61,.36,1);}
+  .mpg-{{ sid }} .gcard:hover{border-color:#c9c9c4;background:#f1f1ee;transform:translateY(-3px);}
+  .mpg-{{ sid }} .gcard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;}
+  .mpg-{{ sid }} .ico{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .mpg-{{ sid }} .ico svg{width:22px;height:22px;stroke:var(--ink);fill:none;}
+  .mpg-{{ sid }} .ico svg path{stroke-width:1.4;}
+  .mpg-{{ sid }} .num{font-family:"Raleway",sans-serif;font-weight:200;font-size:1.9rem;line-height:1;color:#b9b9b3;}
+  .mpg-{{ sid }} .gcard b{display:block;font-size:1.1rem;font-weight:700;}
+  .mpg-{{ sid }} .gcard p{margin-top:10px;color:var(--muted);font-size:.95rem;font-weight:300;}
+
+  /* ---------- términos + excepciones ---------- */
+  .mpg-{{ sid }} .legal{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);align-items:start;}
+  .mpg-{{ sid }} .legal h3{font-family:"Raleway",sans-serif;font-weight:200;font-size:clamp(1.6rem,2.8vw,2.2rem);margin-top:14px;}
+  .mpg-{{ sid }} .legal h3 strong{font-weight:700;}
+  .mpg-{{ sid }} .terms{margin-top:26px;border-top:1px solid var(--line);counter-reset:t;}
+  .mpg-{{ sid }} .terms li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--line);color:var(--muted);font-weight:300;font-size:.97rem;counter-increment:t;}
+  .mpg-{{ sid }} .terms li::before{content:counter(t,decimal-leading-zero);font-size:.74rem;letter-spacing:.2em;color:#9aa0a6;padding-top:3px;}
+  .mpg-{{ sid }} .excep{background:var(--dark);color:#fff;border-radius:var(--radius);padding:clamp(28px,4vw,44px);}
+  .mpg-{{ sid }} .excep .eyebrow{color:#9aa1aa;}
+  .mpg-{{ sid }} .excep-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#26282c;border:1px solid #26282c;border-radius:18px;overflow:hidden;margin-top:26px;}
+  .mpg-{{ sid }} .ex{background:var(--dark);padding:20px 20px 22px;}
+  .mpg-{{ sid }} .ex svg{width:18px;height:18px;stroke:var(--warm);fill:none;stroke-width:1.6;margin-bottom:10px;}
+  .mpg-{{ sid }} .ex b{display:block;font-size:.95rem;font-weight:700;letter-spacing:.02em;}
+  .mpg-{{ sid }} .ex span{display:block;font-size:.85rem;color:#9aa1aa;font-weight:300;margin-top:4px;}
+
+  /* ---------- cuidados: isla negra ---------- */
+  .mpg-{{ sid }} .paper{background:var(--dark);color:#fff;}
+  .mpg-{{ sid }} .paper .eyebrow{color:#9aa1aa;}
+  .mpg-{{ sid }} .paper .lead{color:#b5b5b5;}
+  .mpg-{{ sid }} .care{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#26282c;border:1px solid #26282c;border-radius:22px;overflow:hidden;margin-top:48px;}
+  .mpg-{{ sid }} .care-item{background:var(--dark);padding:clamp(26px,3.4vw,40px);display:grid;grid-template-columns:auto 1fr;gap:20px;transition:background .35s ease;}
+  .mpg-{{ sid }} .care-item:hover{background:#121316;}
+  .mpg-{{ sid }} .care-n{font-family:"Raleway",sans-serif;font-weight:200;font-size:clamp(2.4rem,4vw,3.2rem);line-height:.9;color:#fff;}
+  .mpg-{{ sid }} .care-item b{display:block;font-size:1.08rem;font-weight:700;padding-top:4px;}
+  .mpg-{{ sid }} .care-item p{margin-top:10px;color:#b5b5b5;font-weight:300;font-size:.95rem;}
+  .mpg-{{ sid }} .care-item p + p{margin-top:8px;}
+
+  /* ---------- videos ---------- */
+  .mpg-{{ sid }} .videos{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px;}
+  .mpg-{{ sid }} .video{border-radius:22px;overflow:hidden;background:var(--card);border:1px solid var(--line);transition:border-color .35s ease,transform .5s cubic-bezier(.22,.61,.36,1);}
+  .mpg-{{ sid }} .video:hover{border-color:#c9c9c4;transform:translateY(-4px);}
+  .mpg-{{ sid }} .yt{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;background:#000;cursor:pointer;overflow:hidden;}
+  .mpg-{{ sid }} .yt img{width:100%;height:100%;object-fit:cover;filter:brightness(.82);transition:transform 1s cubic-bezier(.22,.61,.36,1),filter .5s;}
+  .mpg-{{ sid }} .yt:hover img{transform:scale(1.04);filter:brightness(.95);}
+  .mpg-{{ sid }} .yt .play{position:absolute;left:50%;top:50%;width:66px;height:66px;margin:-33px 0 0 -33px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .3s ease,background .3s ease;}
+  .mpg-{{ sid }} .yt:hover .play{transform:scale(1.08);background:#fff;}
+  .mpg-{{ sid }} .yt .play svg{width:22px;height:22px;fill:var(--ink);margin-left:4px;}
+  .mpg-{{ sid }} .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .mpg-{{ sid }} .video-body{padding:20px 22px 24px;}
+  .mpg-{{ sid }} .video-body span{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--warm);}
+  .mpg-{{ sid }} .video-body b{display:block;font-size:1.05rem;font-weight:700;margin-top:8px;line-height:1.35;}
+  .mpg-{{ sid }} .video-body p{margin-top:8px;color:var(--muted);font-weight:300;font-size:.92rem;}
+
+  /* ---------- cierre ---------- */
+  .mpg-{{ sid }} .contacto{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--dark);background:var(--dark);color:#fff;padding:clamp(40px,6vw,72px) clamp(24px,5vw,64px);text-align:center;}
+  .mpg-{{ sid }} .contacto::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 50% 0%,rgba(201,146,90,.2),transparent 60%);}
+  .mpg-{{ sid }} .contacto > *{position:relative;}
+  .mpg-{{ sid }} .contacto h2{font-family:"Raleway",sans-serif;font-weight:200;font-size:clamp(1.8rem,3.6vw,2.8rem);margin:14px 0 0;}
+  .mpg-{{ sid }} .contacto h2 strong{font-weight:700;}
+  .mpg-{{ sid }} .contacto .eyebrow{color:#9aa1aa;}
+  .mpg-{{ sid }} .contacto .lead{color:#b5b5b5;margin-top:16px;}
+  .mpg-{{ sid }} .contacto .cta-row{margin-top:30px;}
+
+  @media(max-width:960px){
+    .mpg-{{ sid }} .gcards{grid-template-columns:1fr;}
+    .mpg-{{ sid }} .legal{grid-template-columns:1fr;}
+  }
+  @media(max-width:760px){
+    .mpg-{{ sid }} .hero-inner{grid-template-columns:1fr;padding-block:56px 48px;}
+    .mpg-{{ sid }} .seal{justify-self:start;width:150px;order:-1;}
+    .mpg-{{ sid }} .seal b{font-size:3.4rem;}
+    .mpg-{{ sid }} .seal span{font-size:.6rem;letter-spacing:.2em;}
+    .mpg-{{ sid }} .care{grid-template-columns:1fr;}
+    .mpg-{{ sid }} .videos{grid-template-columns:1fr;}
+  }
+  @media(max-width:520px){
+    .mpg-{{ sid }} .excep-grid{grid-template-columns:1fr;}
+    .mpg-{{ sid }} .care-item{grid-template-columns:1fr;gap:12px;}
+    .mpg-{{ sid }} .terms li{grid-template-columns:34px 1fr;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .mpg-{{ sid }} .rv{opacity:1;transform:none;transition:none;}
+  }
+</style>
+
+<div class="mpg-{{ sid }}" id="mpg-root-{{ sid }}">
+
+  {%- comment -%} HERO {%- endcomment -%}
+  <section class="hero">
+    {%- if section.settings.hero_img != blank -%}
+      <div class="hero-bg" aria-hidden="true">
+        {{ section.settings.hero_img | image_url: width: 2400 | image_tag: loading: 'eager', sizes: '100vw', widths: '800, 1200, 1600, 2000, 2400', alt: '' }}
+      </div>
+    {%- endif -%}
+    <div class="container hero-inner">
+      <div>
+        {%- if section.settings.hero_eyebrow != blank -%}<p class="eyebrow">{{ section.settings.hero_eyebrow }}</p>{%- endif -%}
+        <h1>{{ section.settings.title }} <strong>{{ section.settings.title_hl }}</strong></h1>
+        {%- if section.settings.subtitle != blank -%}<p class="sub">{{ section.settings.subtitle }}</p>{%- endif -%}
+        {%- if section.settings.show_quick_nav -%}
+          <nav class="quicknav" aria-label="{{ section.settings.title | escape }}">
+            {%- if n_garantia > 0 or n_terminos > 0 -%}<a href="#mpg-garantia-{{ sid }}">{{ section.settings.garantia_icon }}{{ section.settings.garantia_text }}</a>{%- endif -%}
+            {%- if section.settings.show_cuidados and n_cuidados > 0 -%}<a href="#mpg-cuidados-{{ sid }}">{{ section.settings.cuidados_icon }}{{ section.settings.cuidados_text }}</a>{%- endif -%}
+            {%- if section.settings.show_videos and n_videos > 0 -%}<a href="#mpg-videos-{{ sid }}">{{ section.settings.videos_icon }}{{ section.settings.videos_text }}</a>{%- endif -%}
+          </nav>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.seal_number != blank -%}
+        <div class="seal" aria-hidden="true">
+          <b>{{ section.settings.seal_number }}</b>
+          <span>{{ section.settings.seal_label }}</span>
+          <i></i>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  {%- comment -%} GARANTÍA {%- endcomment -%}
+  {%- if n_garantia > 0 -%}
+    <section class="section" id="mpg-garantia-{{ sid }}">
+      <div class="container">
+        <div class="center rv">
+          <p class="eyebrow">{{ section.settings.garantia_eyebrow }}</p>
+          <h2 class="title">{{ section.settings.garantia_title }} <strong>{{ section.settings.garantia_title_hl }}</strong></h2>
+          {%- if section.settings.garantia_lead != blank -%}<p class="lead" style="margin-top:16px;">{{ section.settings.garantia_lead }}</p>{%- endif -%}
+        </div>
+        <div class="gcards">
+          {%- assign i = 0 -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'garantia_card' -%}
+              {%- assign i = i | plus: 1 -%}
+              <article class="gcard rv" {{ block.shopify_attributes }}>
+                <div class="gcard-top">
+                  <span class="ico" aria-hidden="true">{{ block.settings.icon }}</span>
+                  <span class="num">{% if i < 10 %}0{% endif %}{{ i }}</span>
+                </div>
+                <b>{{ block.settings.title }}</b>
+                <p>{{ block.settings.description }}</p>
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- comment -%} TÉRMINOS + EXCEPCIONES {%- endcomment -%}
+  {%- assign show_t = false -%}{%- if section.settings.show_terminos and n_terminos > 0 -%}{%- assign show_t = true -%}{%- endif -%}
+  {%- assign show_x = false -%}{%- if section.settings.show_no_responsable and n_excep > 0 -%}{%- assign show_x = true -%}{%- endif -%}
+  {%- if show_t or show_x -%}
+    <section class="section" style="padding-top:0;"{% if n_garantia == 0 %} id="mpg-garantia-{{ sid }}"{% endif %}>
+      <div class="container legal">
+        {%- if show_t -%}
+          <div class="rv">
+            <p class="eyebrow">{{ section.settings.terminos_eyebrow }}</p>
+            <h3>{{ section.settings.terminos_title }}</h3>
+            <ol class="terms">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'termino_item' -%}<li {{ block.shopify_attributes }}><span>{{ block.settings.texto }}</span></li>{%- endif -%}
+              {%- endfor -%}
+            </ol>
+          </div>
+        {%- endif -%}
+        {%- if show_x -%}
+          <div class="excep rv">
+            <p class="eyebrow">{{ section.settings.no_responsable_eyebrow }}</p>
+            <h3>{{ section.settings.no_responsable_title }}</h3>
+            <div class="excep-grid">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'no_responsable_item' -%}
+                  <div class="ex" {{ block.shopify_attributes }}>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>
+                    <b>{{ block.settings.title }}</b>
+                    <span>{{ block.settings.description }}</span>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- comment -%} CUIDADOS {%- endcomment -%}
+  {%- if section.settings.show_cuidados and n_cuidados > 0 -%}
+    <section class="section paper" id="mpg-cuidados-{{ sid }}">
+      <div class="container">
+        <div class="center rv">
+          <p class="eyebrow">{{ section.settings.cuidados_text }}</p>
+          <h2 class="title">{{ section.settings.cuidados_title }} <strong>{{ section.settings.cuidados_title_hl }}</strong></h2>
+          {%- if section.settings.cuidados_subtitle != blank -%}<p class="lead" style="margin-top:16px;">{{ section.settings.cuidados_subtitle }}</p>{%- endif -%}
+        </div>
+        <div class="care rv">
+          {%- assign i = 0 -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'cuidado_item' -%}
+              {%- assign i = i | plus: 1 -%}
+              <article class="care-item" {{ block.shopify_attributes }}>
+                <span class="care-n">{% if i < 10 %}0{% endif %}{{ i }}</span>
+                <div>
+                  <b>{{ block.settings.title }}</b>
+                  {%- assign paras = block.settings.description | newline_to_br | split: '<br />' -%}
+                  {%- for p in paras -%}{%- assign pt = p | strip -%}{%- if pt != blank -%}<p>{{ pt }}</p>{%- endif -%}{%- endfor -%}
+                </div>
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- comment -%} VIDEOS {%- endcomment -%}
+  {%- if section.settings.show_videos and n_videos > 0 -%}
+    <section class="section" id="mpg-videos-{{ sid }}">
+      <div class="container">
+        <div class="center rv">
+          <p class="eyebrow">{{ section.settings.videos_text }}</p>
+          <h2 class="title">{{ section.settings.videos_title }} <strong>{{ section.settings.videos_title_hl }}</strong></h2>
+          {%- if section.settings.videos_subtitle != blank -%}<p class="lead" style="margin-top:16px;">{{ section.settings.videos_subtitle }}</p>{%- endif -%}
+        </div>
+        <div class="videos">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'video_item' and block.settings.youtube_id != blank -%}
+              {%- assign vtitle = block.settings.video_title | split: ' - ' | last -%}
+              <article class="video rv" {{ block.shopify_attributes }}>
+                <button class="yt" type="button" data-yt="{{ block.settings.youtube_id | escape }}" aria-label="Reproducir: {{ block.settings.video_title | escape }}">
+                  <img src="https://i.ytimg.com/vi/{{ block.settings.youtube_id }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                  <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                </button>
+                <div class="video-body">
+                  <span>{{ section.settings.videos_tag }}</span>
+                  <b>{{ vtitle | slice: 0 | upcase }}{{ vtitle | slice: 1, 300 }}</b>
+                  {%- if block.settings.video_description != blank -%}<p>{{ block.settings.video_description }}</p>{%- endif -%}
+                </div>
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- comment -%} CIERRE {%- endcomment -%}
+  {%- if section.settings.show_cta -%}
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="contacto rv">
+          <p class="eyebrow">{{ section.settings.cta_eyebrow }}</p>
+          <h2>{{ section.settings.cta_title }} <strong>{{ section.settings.cta_title_hl }}</strong></h2>
+          {%- if section.settings.cta_lead != blank -%}<p class="lead">{{ section.settings.cta_lead }}</p>{%- endif -%}
+          <div class="cta-row">
+            {%- if section.settings.cta_btn != blank -%}<a class="btn btn-light" href="{{ section.settings.cta_btn_url | default: '/#contacto' }}">{{ section.settings.cta_btn }}</a>{%- endif -%}
+            {%- if section.settings.cta_btn2 != blank -%}<a class="btn btn-ghost" href="{{ section.settings.cta_btn2_url | default: '/collections/todos-los-productos' }}">{{ section.settings.cta_btn2 }}</a>{%- endif -%}
+          </div>
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+</div>
+
+<script>
+  (function () {
+    var root = document.getElementById('mpg-root-{{ sid }}');
+    if (!root) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = root.querySelectorAll('.rv');
+    if (!('IntersectionObserver' in window) || reduce || (window.Shopify && Shopify.designMode)) {
+      items.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    }
+
+    /* videos: se carga el reproductor de YouTube recién al tocar play (la página queda liviana) */
+    root.querySelectorAll('.yt[data-yt]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-yt');
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+        f.title = btn.getAttribute('aria-label') || 'Video';
+        f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        f.allowFullscreen = true;
+        btn.innerHTML = '';
+        btn.appendChild(f);
+        btn.removeAttribute('data-yt');
+        btn.style.cursor = 'default';
+      }, { once: true });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Mi Pileta · Garantía",
+  "settings": [
+    { "type": "header", "content": "Portada" },
+    { "type": "image_picker", "id": "hero_img", "label": "Imagen de fondo (opcional)" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Antetítulo", "default": "Compra protegida" },
+    { "type": "text", "id": "title", "label": "Título (parte fina)", "default": "Tu pileta," },
+    { "type": "text", "id": "title_hl", "label": "Título (parte en negrita)", "default": "protegida" },
+    { "type": "text", "id": "subtitle", "label": "Bajada", "default": "Todo lo que necesitás saber sobre garantía, cuidados e instalación de nuestros productos." },
+    { "type": "text", "id": "seal_number", "label": "Sello · número", "default": "10" },
+    { "type": "text", "id": "seal_label", "label": "Sello · texto", "default": "años de garantía" },
+    { "type": "checkbox", "id": "show_quick_nav", "label": "Mostrar accesos rápidos", "default": true },
+    { "type": "textarea", "id": "garantia_icon", "label": "Acceso Garantía · ícono SVG" },
+    { "type": "text", "id": "garantia_text", "label": "Acceso Garantía · texto", "default": "Garantía" },
+    { "type": "textarea", "id": "cuidados_icon", "label": "Acceso Cuidados · ícono SVG" },
+    { "type": "text", "id": "cuidados_text", "label": "Acceso Cuidados · texto", "default": "Cuidados" },
+    { "type": "textarea", "id": "videos_icon", "label": "Acceso Videos · ícono SVG" },
+    { "type": "text", "id": "videos_text", "label": "Acceso Videos · texto", "default": "Videos tutoriales" },
+
+    { "type": "header", "content": "Garantía" },
+    { "type": "text", "id": "garantia_eyebrow", "label": "Antetítulo", "default": "Garantía" },
+    { "type": "text", "id": "garantia_title", "label": "Título (parte fina)", "default": "Respaldo de" },
+    { "type": "text", "id": "garantia_title_hl", "label": "Título (parte en negrita)", "default": "fábrica" },
+    { "type": "textarea", "id": "garantia_lead", "label": "Bajada" },
+
+    { "type": "header", "content": "Términos y excepciones" },
+    { "type": "checkbox", "id": "show_terminos", "label": "Mostrar términos", "default": true },
+    { "type": "text", "id": "terminos_eyebrow", "label": "Términos · antetítulo", "default": "Condiciones" },
+    { "type": "text", "id": "terminos_title", "label": "Términos · título", "default": "Términos generales de la garantía" },
+    { "type": "checkbox", "id": "show_no_responsable", "label": "Mostrar excepciones", "default": true },
+    { "type": "text", "id": "no_responsable_eyebrow", "label": "Excepciones · antetítulo", "default": "No cubre" },
+    { "type": "text", "id": "no_responsable_title", "label": "Excepciones · título", "default": "Excepciones y limitaciones de cobertura" },
+
+    { "type": "header", "content": "Cuidados" },
+    { "type": "checkbox", "id": "show_cuidados", "label": "Mostrar cuidados", "default": true },
+    { "type": "text", "id": "cuidados_title", "label": "Título (parte fina)", "default": "Tu pileta" },
+    { "type": "text", "id": "cuidados_title_hl", "label": "Título (parte en negrita)", "default": "para toda la vida" },
+    { "type": "text", "id": "cuidados_subtitle", "label": "Bajada", "default": "Conocé los tips para el mejor mantenimiento" },
+
+    { "type": "header", "content": "Videos" },
+    { "type": "checkbox", "id": "show_videos", "label": "Mostrar videos", "default": true },
+    { "type": "text", "id": "videos_title", "label": "Título (parte fina)", "default": "Tutoriales de" },
+    { "type": "text", "id": "videos_title_hl", "label": "Título (parte en negrita)", "default": "instalación" },
+    { "type": "text", "id": "videos_subtitle", "label": "Bajada", "default": "Aprendé a instalar y mantener tus productos con nuestros videos paso a paso" },
+    { "type": "text", "id": "videos_tag", "label": "Etiqueta de cada video", "default": "Tutorial" },
+
+    { "type": "header", "content": "Cierre" },
+    { "type": "checkbox", "id": "show_cta", "label": "Mostrar cierre", "default": true },
+    { "type": "text", "id": "cta_eyebrow", "label": "Antetítulo", "default": "Estamos para ayudarte" },
+    { "type": "text", "id": "cta_title", "label": "Título (parte fina)", "default": "¿Tenés dudas sobre" },
+    { "type": "text", "id": "cta_title_hl", "label": "Título (parte en negrita)", "default": "tu garantía?" },
+    { "type": "textarea", "id": "cta_lead", "label": "Bajada", "default": "Escribinos y nuestro equipo te asesora." },
+    { "type": "text", "id": "cta_btn", "label": "Botón principal", "default": "Contactanos" },
+    { "type": "url", "id": "cta_btn_url", "label": "Link botón principal" },
+    { "type": "text", "id": "cta_btn2", "label": "Botón secundario", "default": "Ver productos" },
+    { "type": "url", "id": "cta_btn2_url", "label": "Link botón secundario" }
+  ],
+  "blocks": [
+    {
+      "type": "garantia_card",
+      "name": "Tarjeta de garantía",
+      "settings": [
+        { "type": "textarea", "id": "icon", "label": "Ícono SVG" },
+        { "type": "text", "id": "title", "label": "Título", "default": "Garantía" },
+        { "type": "textarea", "id": "description", "label": "Descripción", "default": "Descripción." }
+      ]
+    },
+    {
+      "type": "termino_item",
+      "name": "Término",
+      "settings": [
+        { "type": "textarea", "id": "texto", "label": "Texto", "default": "Término de la garantía." }
+      ]
+    },
+    {
+      "type": "no_responsable_item",
+      "name": "Excepción",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Excepción" },
+        { "type": "textarea", "id": "description", "label": "Descripción", "default": "Descripción." }
+      ]
+    },
+    {
+      "type": "cuidado_item",
+      "name": "Cuidado",
+      "settings": [
+        { "type": "textarea", "id": "icon", "label": "Ícono SVG (sin uso en este diseño)" },
+        { "type": "text", "id": "title", "label": "Título", "default": "Cuidado" },
+        { "type": "textarea", "id": "description", "label": "Descripción", "info": "Cada renglón se muestra como un párrafo.", "default": "Descripción." }
+      ]
+    },
+    {
+      "type": "video_item",
+      "name": "Video",
+      "settings": [
+        { "type": "text", "id": "youtube_id", "label": "ID de YouTube", "info": "Lo que va después de watch?v= en el link del video." },
+        { "type": "text", "id": "video_title", "label": "Título", "info": "Si tiene un guion (Mi Pileta tutoriales - …) se muestra solo la parte de después." },
+        { "type": "textarea", "id": "video_description", "label": "Descripción" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Mi Pileta · Garantía" }]
+}
+{% endschema %}
